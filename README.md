@@ -24,14 +24,24 @@ TODO: Schema
 
 ## Scenario
 
-### STEP 01
+### STEP 01 (passing tests)
 
 ```
 Given: An application
 
 When: A developer pushes new commits on Github
 
-Then: A Github action that builds a docker image for the application is started
+Then: A Github action builds a docker image for the application is started
+```
+
+### STEP 01 (failing tests)
+
+```
+Given: An application
+
+When: A developer pushes new commits on Github (with failing tests)
+
+Then: The Github action doesn't build the image, FluxCD doesn't pull the new image, the application isn't updated
 ```
 
 ### STEP 02
