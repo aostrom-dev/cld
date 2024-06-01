@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: contour
+  labels:
+    managment.aostrom.net/purpose: ingress
+    aostrom.net/team: managment
