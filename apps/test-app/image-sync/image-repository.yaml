@@ -6,5 +6,6 @@ metadata:
 spec:
   image: ghcr.io/aostrom-dev/app
   provider: generic
-  secretRef: ghcr-credentials
+  secretRef:
+    name: ghcr-credentials
   interval: 1m
