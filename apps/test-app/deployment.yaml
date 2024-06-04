@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: test-app
-          image: ghcr.io/aostrom-dev/app:nightly-20240603-160226-5701fd7 # {"$imagepolicy": "test-app:test-app-nightly"}
+          image: ghcr.io/aostrom-dev/app:nightly-20240604-183338-2bfdc25 # {"$imagepolicy": "test-app:test-app-nightly"}
           ports:
             - name: http
               containerPort: 3000
