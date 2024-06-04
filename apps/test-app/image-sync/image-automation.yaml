@@ -1,0 +1,25 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: test-app-updates
+  namespace: test-app
+spec:
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcd-bot@kodai.ch
+        name: fluxcd-bot
+      messageTemplate: "Updated test-app to {{range .Updated.Images}}{{println .}}{{end}}"
+    push:
+      branch: main
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  update:
+    path: ./
+    strategy: Setters

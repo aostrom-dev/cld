@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: ghcr-aostrom-dev
+  namespace: test-app
+spec:
+  image: ghcr.io/aostrom-dev/app
+  interval: 1m
