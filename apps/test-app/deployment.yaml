@@ -22,3 +22,5 @@ spec:
             - name: http
               containerPort: 3000
               protocol: TCP
+      imagePullSecrets:
+        - name: ghcr-credentials
