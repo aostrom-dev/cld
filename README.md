@@ -88,3 +88,15 @@ Another tool that goes hand-in-hand with FluxCD is [Flagger](https://flagger.app
 - Blue/Green deployments
 
 Flagger might be an interesting tool to look into following this Workshop.
+
+
+# For further exploration:
+- [Flux's documentation](https://fluxcd.io/flux/), while a bit messy at times, helps you understand some of the harder concepts of this piece of software.
+    
+    We used the following guides to make this demonstration possible:
+    - [How to bootstrap a flux installation on github](https://fluxcd.io/flux/installation/bootstrap/github/)
+    - [How to automatically update the flux repository on image update](https://fluxcd.io/flux/guides/image-update/)
+    - [Managing helm releases like Contour or cert-manager](https://fluxcd.io/flux/guides/helmreleases/)
+    - [How to structure a flux repository](https://fluxcd.io/flux/guides/repository-structure/)
+
+- [Contour's documentation](https://projectcontour.io/) exists at least, and was useful to change some of the annotations for [HTTP -> HTTPS forwarding](https://projectcontour.io/docs/main/config/annotations/)
