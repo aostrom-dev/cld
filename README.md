@@ -16,8 +16,8 @@ The service model of GKE is CaaS (Container-as-a-service).
 
 - A GKE Cluster
 - FluxCD installed in the cluster
-- The Github container registry
-- A github action that builds the app's docker image
+- The GitHub container registry
+- A GitHub action that builds the app's docker image
 - A dockerized app
 
 ## Schema
@@ -31,9 +31,9 @@ The service model of GKE is CaaS (Container-as-a-service).
 ```
 Given: An application
 
-When: A developer pushes new commits on Github
+When: A developer pushes new commits on GitHub
 
-Then: A Github action builds a docker image for the application is started
+Then: A GitHub action builds a docker image for the application is started
 ```
 
 ### STEP 01 (failing tests)
@@ -41,9 +41,9 @@ Then: A Github action builds a docker image for the application is started
 ```
 Given: An application
 
-When: A developer pushes new commits on Github (with failing tests)
+When: A developer pushes new commits on GitHub (with failing tests)
 
-Then: The Github action doesn't build the image, FluxCD doesn't pull the new image, the application isn't updated
+Then: The GitHub action doesn't build the image, FluxCD doesn't pull the new image, the application isn't updated
 ```
 
 ### STEP 02
@@ -58,12 +58,33 @@ Then: FluxCD updates the application deployment with the new docker image
 
 ## Cost
 
-<analysis of load-related costs.>
+### GitHub
 
-<option to reduce or adapt costs (practices, subscription)>
+We are using GitHub Actions to test and build the application. You can find more information about the GitHub Action pricing on the [Billing for GitHub Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions) page. You can also find more informations about the pricing on the [GitHub Pricing](https://github.com/pricing) page.
+
+We are currently on the free tier which includes 2,000 CI/CD minutes/month.
+
+### GKE
+
+Bellow you can find the price of a GKE cluster with 3 nodes. You can find configuration for the cluster in the [setup-cluster.sh](./scripts/setup-cluster.sh) script.
+
+![GKE Cost Estimate Summary](./_images/gke_cost_estimate.png)
+
+### Options to reduce or adapt costs
+
+- Reduce the number of nodes in the GKE cluster.
+- [Add self-hosted runners on GitHub](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)
 
 ## Return of experience
 
-<take a position on the poc that has been produced.>
+We produced a solution that met all the criterias that we established. The solution leverages FluxCD to provide continous delivery of an application. This allows the developers to focus on building features and ship fast by reducing the time to production.
 
-<Did it validate the announced objectives?>
+This solution may be adapted in cases where you need a short iteration loop, leading to faster shipping of new features by leveraging Kubernetes and FluxCD without compromising the availability of the service.
+
+Another tool that goes hand-in-hand with FluxCD is [Flagger](https://flagger.app/). Flagger is a _Progressive Delivery Operator for Kubernetes_ that allows :
+
+- Canaries
+- A/B Testing
+- Blue/Green deployments
+
+Flagger might be an interesting tool to look into following this Workshop.
