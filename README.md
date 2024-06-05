@@ -10,7 +10,7 @@ We would like to use FluxCD to automatically update a deployment inside a Kubern
 
 ### Cloud type
 
-The service model approaches a PaaS, but has some differences as mentioned in the [Kubernetes docs](https://kubernetes.io/docs/concepts/overview/).
+The service model of GKE is CaaS (Container-as-a-service).
 
 ### Logical components
 
@@ -20,7 +20,9 @@ The service model approaches a PaaS, but has some differences as mentioned in th
 - A github action that builds the app's docker image
 - A dockerized app
 
-TODO: Schema
+## Schema
+
+![Schema](./_images/schema.png)
 
 ## Scenario
 
