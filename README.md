@@ -33,7 +33,7 @@ Given: An application
 
 When: A developer pushes new commits on GitHub
 
-Then: A GitHub action builds a docker image for the application is started
+Then: A GitHub action builds a docker image for the application that is started
 ```
 
 ### STEP 01 (failing tests)
@@ -49,7 +49,7 @@ Then: The GitHub action doesn't build the image, FluxCD doesn't pull the new ima
 ### STEP 02
 
 ```
-Given: a FluxCD deployment running inside the GKE cluster
+Given: A FluxCD deployment running inside the GKE cluster
 
 When: FluxCD detects changes
 
@@ -60,13 +60,13 @@ Then: FluxCD updates the application deployment with the new docker image
 
 ### GitHub
 
-We are using GitHub Actions to test and build the application. You can find more information about the GitHub Action pricing on the [Billing for GitHub Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions) page. You can also find more informations about the pricing on the [GitHub Pricing](https://github.com/pricing) page.
+We use GitHub Actions to test and build the application. You can find more information about the GitHub Action pricing on the [Billing for GitHub Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions) page. You can also find more information about the pricing on the [GitHub Pricing](https://github.com/pricing) page.
 
 We are currently on the free tier which includes 2,000 CI/CD minutes/month.
 
 ### GKE
 
-Bellow you can find the price of a GKE cluster with 3 nodes. You can find configuration for the cluster in the [setup-cluster.sh](./scripts/setup-cluster.sh) script.
+Bellow you can find the price of a GKE cluster with 3 nodes. You can find the cluster configuration in the [setup-cluster.sh](./scripts/setup-cluster.sh) script.
 
 ![GKE Cost Estimate Summary](./_images/gke_cost_estimate.png)
 
@@ -75,9 +75,9 @@ Bellow you can find the price of a GKE cluster with 3 nodes. You can find config
 - Reduce the number of nodes in the GKE cluster.
 - [Add self-hosted runners on GitHub](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)
 
-## Return of experience
+## Experience return (Return of experience)
 
-We produced a solution that met all the criterias that we established. The solution leverages FluxCD to provide continous delivery of an application. This allows the developers to focus on building features and ship fast by reducing the time to production.
+We produced a solution that met all criteria that we established. The solution employs FluxCD to provide continous delivery of an application. This allows the developers to focus on building features and quickly ship by reducing the time to production.
 
 This solution may be adapted in cases where you need a short iteration loop, leading to faster shipping of new features by leveraging Kubernetes and FluxCD without compromising the availability of the service.
 
@@ -99,4 +99,4 @@ Flagger might be an interesting tool to look into following this Workshop.
     - [Managing helm releases like Contour or cert-manager](https://fluxcd.io/flux/guides/helmreleases/)
     - [How to structure a flux repository](https://fluxcd.io/flux/guides/repository-structure/)
 
-- [Contour's documentation](https://projectcontour.io/) exists at least, and was useful to change some of the annotations for [HTTP -> HTTPS forwarding](https://projectcontour.io/docs/main/config/annotations/)
+- [Contour's documentation](https://projectcontour.io/) exists at least, and was useful to change some of the annotations for [HTTP -> HTTPS forwarding](https://projectcontour.io/docs/main/config/annotations/).
